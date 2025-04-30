@@ -40,10 +40,8 @@ test("Order validated on the UI which placed through the API", async ({ page }) 
         window.localStorage.setItem('token', value)
     }, token);
     await page.goto("https://rahulshettyacademy.com/client/");
-    //const orderID = await createOrder(createOrderPayload);
 
     await page.getByRole('button', { name: 'ORDERS' }).click();
-    // await page.locator("button[routerlink*='myorders']").click();
     await page.locator("tbody").waitFor();
     const orders = page.locator("tbody tr");
     const orderCount = await orders.count();
